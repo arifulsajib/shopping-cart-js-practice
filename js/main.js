@@ -33,6 +33,22 @@ minusPhonebtn.addEventListener("click", () => {
   }
 });
 
+// quantity input change phone
+const quantityPhoneInput = document.getElementById("quantity-input-phone");
+quantityPhoneInput.addEventListener("change", () => {
+  const isInputValidated = inputValidation("quantity-input-phone");
+  if (isInputValidated) {
+    // product value
+    const quantity = getValue("quantity-input-phone", true);
+    SetProductTotal(quantity, 1219, "product-1-total");
+    // calc
+    calc();
+  } else {
+    alert("Invalid!! Min quantity is 1");
+    setValue("quantity-input-phone", 1, true);
+  }
+});
+
 // quantity plus case
 const plusCasebtn = document.getElementById("quantity-plus-case");
 plusCasebtn.addEventListener("click", () => {
@@ -50,13 +66,29 @@ plusCasebtn.addEventListener("click", () => {
   }
 });
 
-// quantity plus phone
+// quantity plus case
 const minusCasebtn = document.getElementById("quantity-minus-case");
 minusCasebtn.addEventListener("click", () => {
   const isInputValidated = inputValidation("quantity-input-case");
   if (isInputValidated) {
     // set quantity
     productQuantity("quantity-input-case", false);
+    // product value
+    const quantity = getValue("quantity-input-case", true);
+    SetProductTotal(quantity, 59, "product-2-total");
+    // calc
+    calc();
+  } else {
+    alert("Invalid!! Min quantity is 1");
+    setValue("quantity-input-case", 1, true);
+  }
+});
+
+// quantity input change case
+const quantityCaseInput = document.getElementById("quantity-input-case");
+quantityCaseInput.addEventListener("change", () => {
+  const isInputValidated = inputValidation("quantity-input-case");
+  if (isInputValidated) {
     // product value
     const quantity = getValue("quantity-input-case", true);
     SetProductTotal(quantity, 59, "product-2-total");
